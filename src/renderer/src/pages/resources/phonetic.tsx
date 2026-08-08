@@ -40,7 +40,10 @@ export function PhoneticsContent(): React.JSX.Element {
   const [data, setData] = useState<PhoneticIndex | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  const base = `/phonetic/${ACCENT_DIR[accent]}`
+  // 必须是相对路径：prod 的 renderer 从 file:// 加载（main/window.ts），前导 `/` 会解析到
+  // 盘符根（file:///D:/phonetic/…）而非应用资源目录，fetch 直接 reject「Failed to fetch」。
+  // dev 的 http://localhost 与 prod 的 file:// 下 HashRouter 都只动 hash 不动 path，相对解析两端皆准。
+  const base = `./phonetic/${ACCENT_DIR[accent]}`
 
   useEffect(() => {
     let alive = true

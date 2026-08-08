@@ -71,7 +71,7 @@ export function setUpgradeRequiredHandler(handler: (() => void) | null): void {
 
 // baseURL：dev 指向本地 server(:8081/api)；prod 经 VITE_API_BASE_URL 换线上域名（同样以 /api 结尾）。
 const request = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8081/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080/api',
   timeout: 15000,
 })
 

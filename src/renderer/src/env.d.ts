@@ -2,7 +2,7 @@
 
 // 自定义环境变量（与 Vite 的 ImportMetaEnv 合并）。
 interface ImportMetaEnv {
-  /** 后端 API 基址（含 /api 前缀）；dev 缺省 http://localhost:8081/api，prod 由构建注入。 */
+  /** 后端 API 基址（含 /api 前缀）；dev 缺省 http://localhost:8080/api，prod 由构建注入。 */
   readonly VITE_API_BASE_URL?: string
 }
 
@@ -21,8 +21,9 @@ type SuggestEntry = import('../../shared/suggest').SuggestEntry
 type TranslateRequest = import('../../shared/translate').TranslateRequest
 type TtsSynthesizeRequest = import('../../shared/tts').TtsSynthesizeRequest
 type TtsSynthesizeResult = import('../../shared/tts').TtsSynthesizeResult
+type UpdateEvent = import('../../shared/updater').UpdateEvent
 
-// preload 经 contextBridge 暴露到 window 的平台面（与 src/preload/index.ts 对齐）：7 桥 20 方法，保持最小。
+// preload 经 contextBridge 暴露到 window 的平台面（与 src/preload/index.ts 对齐）：8 桥 23 方法，保持最小。
 interface Window {
   electronAPI: {
     getAuth: () => Promise<AuthRecord | null>
@@ -57,5 +58,10 @@ interface Window {
   }
   ttsAPI: {
     synthesize: (req: TtsSynthesizeRequest) => Promise<TtsSynthesizeResult>
+  }
+  updaterAPI: {
+    check: () => Promise<boolean>
+    install: () => Promise<void>
+    onEvent: (callback: (event: UpdateEvent) => void) => () => void
   }
 }

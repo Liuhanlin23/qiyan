@@ -9,6 +9,7 @@ import { registerShellIpc } from './shell'
 import { registerSuggestIpc } from './suggest'
 import { registerTranslateIpc } from './translate'
 import { registerTtsIpc } from './tts'
+import { registerUpdaterIpc } from './updater'
 import { createWindow } from './window'
 
 // 封面协议的特权声明必须早于 app ready（Electron 硬性要求），故不能挪进下面的 whenReady。
@@ -23,6 +24,7 @@ app.whenReady().then(() => {
   registerSuggestIpc() // 有道 suggest 转发：suggest:query（main 的 fetch 不带 Origin）
   registerTranslateIpc() // 句子翻译转发：translate:sentence（Google/Azure，main 的 fetch 绕 CORS）
   registerTtsIpc() // Edge TTS 合成转发：tts:synthesize（main 用 ws 带头 wss 直连，renderer WS 不能设头）
+  registerUpdaterIpc() // 自动更新原语：update:check/install + update:event 推流（electron-updater 只能住 main）
 
   createWindow()
 

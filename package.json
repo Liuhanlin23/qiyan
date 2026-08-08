@@ -1,5 +1,5 @@
 {
-  "name": "desktop",
+  "name": "qiyan",
   "version": "0.0.1",
   "description": "qiyan desktop（Electron + React）",
   "author": "liuhanlin",
@@ -39,6 +39,7 @@
   "dependencies": {
     "better-sqlite3": "^12.11.1",
     "drizzle-orm": "^0.45.2",
+    "electron-updater": "^6.8.9",
     "ws": "^8.21.1"
   },
   "devDependencies": {

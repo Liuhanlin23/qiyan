@@ -35,12 +35,14 @@ export interface ResourceCategory {
   subtitle: string
   icon: LucideIcon
   tone: Tone
+  /** 未开放的大类：L1 卡片置灰不可点、标「即将上线」，也不可经 URL 参数进入 L2。 */
+  comingSoon?: boolean
 }
 
 export const RESOURCE_CATEGORIES: ResourceCategory[] = [
   { id: 'phonetic', title: '音标', subtitle: '元音 · 辅音', icon: AudioLines, tone: 'warning' },
-  { id: 'exam', title: '真题', subtitle: '高考 · 考研 · 四六级', icon: FileText, tone: 'accent' },
-  { id: 'grammar', title: '语法', subtitle: '时态 · 从句 · 虚拟语气', icon: AlignLeft, tone: 'success' },
+  { id: 'exam', title: '真题', subtitle: '高考 · 考研 · 四六级', icon: FileText, tone: 'accent', comingSoon: true },
+  { id: 'grammar', title: '语法', subtitle: '时态 · 从句 · 虚拟语气', icon: AlignLeft, tone: 'success', comingSoon: true },
 ]
 
 /** 大类图标盒：色调随大类（对齐单词本功能卡的 size-11 圆角盒，但染成三色以复刻 iOS 分类色）。 */

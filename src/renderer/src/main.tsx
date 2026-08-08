@@ -7,6 +7,7 @@ import { UpgradeGateDialog } from './components/common/UpgradeGateDialog'
 import { initSession, signOut } from './session'
 import { setAuthFailureHandler, setUpgradeRequiredHandler } from './api/request'
 import { probeClientVersion } from './api/clientGate'
+import { ensureUpdateCheck, initAppUpdate } from './lib/appUpdate'
 import { showUpgradeGate } from './lib/upgradeGate'
 import { stopEngine } from './sync'
 import { applyThemePreference, readThemePreference } from './lib/theme'
@@ -49,4 +50,8 @@ initSession()
     // **必须在 initSession 之后**——并发发出的话，426 可能先于 startEngine 返回，stopEngine() 空转，
     // 随后引擎照样起来，成了「弹窗已弹但同步在跑」。运行期不轮询（前台定时一跳天然承担探测）。
     void probeClientVersion()
+    // 自动更新：接上 main 的事件推流后静默查一次（发现即后台下载，退出时自动装上；
+    // 强制点只有版本挡板——撞 426 时弹窗内再触发，一键「重启更新」脱困）。与挡板同节奏不轮询。
+    initAppUpdate()
+    void ensureUpdateCheck()
   })

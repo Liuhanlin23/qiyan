@@ -12,7 +12,17 @@ import { runBatch, runStmt } from './dbExecutor'
 /** 同时最多一个打开的库（单窗口、单登录用户）。 */
 let current: { userId: number; sqlite: Database.Database } | null = null
 
-/** 每用户库文件路径：登出关闭、换账号互不污染。 */
+/**
+ * 每用户库文件路径：登出关闭、换账号互不污染。
+ *
+ * ⚠️ `userData` 的目录名 = `package.json` 的 **`name`**（`qiyan`；Electron 先找 `productName`
+ * 字段，本项目不设该字段故退回 `name`）。它是全体用户本地数据的门牌号——库、`books/`、
+ * `auth.bin` 全挂在它下面。
+ * **第一个正式版发布后，`name` 不可再改，也不可新增 `productName` 字段**：两者都会改变数据
+ * 目录，app 会去一个空目录找数据，
+ * 表现为所有人被"全新安装"（未登录 / 书架空 / 学习记录消失），且强制跟版会一次性打给所有人。
+ * 真要改，必须随那次发版写数据目录搬迁逻辑（同 client-protocol.md §3 剧本二的一次性任务）。
+ */
 function userDbPath(userId: number): string {
   return join(app.getPath('userData'), `qiyan-user-${userId}.db`)
 }

@@ -34,8 +34,33 @@ extraResources:
 asarUnpack:
   - '**/*.node'
 
+# 自动更新的发布源（generic = 纯静态文件托管）。electron-builder 据此在安装包里塞 app-update.yml
+# （electron-updater 运行时读它定位更新源），并在 release/ 产出 latest.yml（要与安装包、.blockmap
+# 一起上传到 dl.nvwa.world 根目录）。运维纪律：latest.yml 不可被 CDN 缓存（发版即生效）；
+# 历史版本的安装包与 .blockmap 不可删（差分下载要拿旧版 blockmap 算增量块）。
+# 本地 release:* 命令默认不上传（--publish 缺省 never），上传是发版流程里的手动一步。
+publish:
+  provider: generic
+  url: https://dl.nvwa.world
+
 win:
   target: nsis
+  # 默认名带空格（`QiYan Setup 0.0.1.exe`），URL 里变 %20，部分 CDN / 下载器会出岔子。
+  # 发第一个正式版之前必须定死——之后再改，老客户端 updater 按 latest.yml 的 path 拼 URL 会 404。
+  artifactName: ${productName}-Setup-${version}.${ext}
+
+# NSIS 安装程序行为。默认是「双击即装进 %LOCALAPPDATA%，全程无界面、不给选目录」，
+# 对国内用户不合习惯（C 盘紧张的人会坚持装 D 盘，不给选就直接不装），故改成向导式。
+# 代价：静默更新时安装程序有概率闪现窗口，不如 oneClick 无感——用安装时的选择权换的。
+# 这套流程同样属于「首发前定死」：oneClick 与 assisted 生成的安装包结构差异极大，
+# 发版后再切，存量用户那一次更新的差分下载会全部失效（等于重下整包）。
+nsis:
+  oneClick: false                           # 向导式（欢迎 → 目录 → 安装 → 完成），而非一键静默装
+  allowToChangeInstallationDirectory: true  # 允许改安装目录；该项仅在 oneClick: false 下生效
+  perMachine: false                         # 仍装进用户目录：安装与静默更新都不需要管理员权限
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  deleteAppDataOnUninstall: false           # 卸载保留本地词库与学习记录（重装即恢复），显式声明意图
 
 mac:
   target: dmg

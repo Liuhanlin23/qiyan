@@ -13,28 +13,20 @@ Windows / Linux 任务栏顶的仍是 Electron 默认图标（macOS 例外，见
 | `app-icon.png` | 设计源图，1254×1254。改图标只改这个，其余三个由下面的命令重新生成 |
 | `icon.png` | 1024×1024 母版。dev 期 `src/main/appIcon.ts` 拿它设 Dock 图标；Linux 打包也取它 |
 | `icon.icns` | macOS 应用包图标 |
-| `icon.ico` | Windows exe 图标 |
+| `icon.ico` | Windows exe 图标，同时被 NSIS 安装程序认领 |
+
+图形铺满画布，四周不留边距——留边距会让图标在任务栏 / 桌面的固定格子里比周边应用小一圈。
 
 ## 重新生成
 
-需要 ImageMagick（`brew install imagemagick`）与 macOS 自带的 `sips` / `iconutil`。
-在本目录下执行：
+改完 `app-icon.png` 后，在 `../`（desktop 根）执行：
 
 ```bash
-# 1) 母版：裁掉透明边 → 等比缩到 824 → 居中放进 1024 透明画布
-#    824/1024 是 macOS 的图标安全区，留白约 10%，Dock 里才和其他 App 一样大
-magick app-icon.png -trim +repage -resize 824x824 \
-  -background none -gravity center -extent 1024x1024 \
-  -define png:color-type=6 icon.png
-
-# 2) icns
-rm -rf icon.iconset && mkdir icon.iconset
-for s in 16 32 128 256 512; do
-  sips -z $s $s icon.png --out "icon.iconset/icon_${s}x${s}.png"
-  sips -z $((s*2)) $((s*2)) icon.png --out "icon.iconset/icon_${s}x${s}@2x.png"
-done
-iconutil -c icns icon.iconset -o icon.icns && rm -rf icon.iconset
-
-# 3) ico
-magick icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+node scripts/gen-icons.mjs
 ```
+
+脚本裁掉源图四周的透明边，把图形本体拉满 1024×1024 母版，再降采样出三个平台的成品。
+只依赖 Node 内置模块，Windows / macOS / Linux 都能跑。
+
+源图要求：PNG、非隔行、8 位深，图形本体四周是**全透明**像素（脚本靠 alpha 裁边）。
+本体应当接近正方形——长宽差超过 2% 脚本会告警，因为拉满画布时形变会开始可见。

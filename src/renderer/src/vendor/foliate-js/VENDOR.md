@@ -19,4 +19,5 @@
 
 - `fixed-layout.js` 顶层 import npm 包 `construct-style-sheets-polyfill`：接入时需加依赖或 alias shim。
 - `pdf.js` 经 bundler alias `@pdfjs/pdf.min.mjs` 加载 pdfjs，并在运行时从 `/vendor/pdfjs/` 路径取 worker / cmaps / 字体 / CSS：需从 npm `pdfjs-dist` 拷贝到 `src/renderer/public/vendor/pdfjs/`。注意 fork 按 pdfjs **5.7** 编写，desktop 现依赖 **6.1**，接线时须验证 API 兼容。
+  - ⚠️ **接 PDF 时必须先处理这个坑**：`pdf.js:1` 的 `pdfjsPath` 用的是**绝对路径** `` `/vendor/pdfjs/${path}` ``（另有 6 处引用它：workerSrc、两个 CSS、wasmUrl、cMapUrl、standardFontDataUrl）。prod 的 renderer 从 `file://` 加载，前导 `/` 解析到**盘符根**而非应用资源目录，全部取不到——dev 正常、正式版必炸。当前 `shared/books.ts` 的 `BOOK_FORMATS` 只有 `epub`，PDF 进不了阅读器，故此路径不可达、未打补丁。同根因的业务侧实例已修（`pages/resources/phonetic.tsx` 改用 `./`）。
 - 引擎为无类型 ESM JS：只给 adapter 实际用到的 API 面手写薄 `.d.ts`，不全量补类型。

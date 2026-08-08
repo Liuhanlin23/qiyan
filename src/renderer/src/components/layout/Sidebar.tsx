@@ -73,7 +73,7 @@ export function AppSidebar({ onOpenSettings }: AppSidebarProps): React.JSX.Eleme
       </SidebarBody>
       <SidebarFooter
         name={email ?? '未登录'}
-        caption="账户与设置"
+        caption=""
         avatar={<UserAvatar className="size-full" />}
         onClick={onOpenSettings}
       />

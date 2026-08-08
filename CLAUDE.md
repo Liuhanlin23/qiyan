@@ -1,4 +1,4 @@
-# 启言桌面端
+# 桌面端（apps/desktop）
 
 「启言」英语学习 App 的桌面端：Electron（main / preload / renderer 三进程）+ React 19 + TypeScript + Tailwind v4 + Radix/CDS，本地库为 better-sqlite3 + Drizzle。
 
@@ -13,19 +13,22 @@ npm run check:no-raw-sql  # 校验渲染层没有裸 SQL（.prepare）
 npm run rebuild           # 维修命令：Electron 升级后或 better-sqlite3 报 ABI 错时重编原生模块（日常无需手动切 ABI）
 ```
 
-## 规范真源（内部文档）
+## 规范真源（改代码前先读对应文档）
 
-目录 / 分层 / IPC 约定、接口与错误处理、技术选型，以及业务规则（feature）与本地表结构（db）的规范文档在私有仓 `qiyan-internal` 中维护，公开仓不包含。外部贡献者以代码现状与下面的红线为准。
+- **目录、分层与 IPC 约定**：[docs/desktop/directory-convention.md](../docs/desktop/directory-convention.md) —— 新增页面 / 组件 / 模块 / IPC 通道前必读
+- **接口与错误处理**：[docs/desktop/api-convention.md](../docs/desktop/api-convention.md)
+- **技术选型与理由**：[docs/desktop/tech-stack.md](../docs/desktop/tech-stack.md)
+- 业务规则见 `docs/feature/`，表结构以 `docs/db/` 为准
 
 ## 红线（完整规则在上述规范里）
 
 - 路由用 **HashRouter**（Electron 走 `file://`，必须 hash）。
 - **TDD 常设豁免（纯视觉工作）**：样式 / 布局 / CDS token 与组件使用免「测试先行」，验收 = 符合 cds-web + Demo 展厅人工走查；紧邻的逻辑（状态 / 派生数据 / 计算 / 事件处理）仍必须测试先行。
-- 样式与组件：统一使用 `components/ui/` 下的 CDS 组件与 Tailwind token，不手写裸 hex / px（内部有 `cds-web` skill 约束，外部贡献参照现有组件写法）。
-- 本地库只经 Drizzle 访问，渲染层**禁止裸 SQL**；改表结构 = 改 `db/schema.ts` + `npm run db:generate`。
+- 样式与组件：写任何 UI 前必须先走 **`cds-web` skill**，规则以它为准。
+- 本地库只经 Drizzle 访问，渲染层**禁止裸 SQL**；改表结构 = 改 `db/schema.ts` + `npm run db:generate`，并与 `docs/db/` 对齐。
 - 页面只从业务域模块的 `index` 门面导入（`wordbook` / `dict` / `settings` / `lookup`），不深入模块内部文件。
 - renderer 侧**只有 `platform/`** 允许接触 `window.electronAPI/dbAPI/shellAPI/suggestAPI` 桥。
-- `src/renderer/src/vendor/foliate-js/` 是阅读引擎（readest 的 **MIT fork**）的**只读 vendor**：不改内部代码、不单独升级（须与上游 readest 快照成对换版本），业务代码不直接 import 其内部模块，经阅读域 adapter 收口——来源 / commit / 接线备忘见目录内 `VENDOR.md`。
+- `src/renderer/src/vendor/foliate-js/` 是阅读引擎（readest 的 **MIT fork**）的**只读 vendor**：不改内部代码、不单独升级（须与 `third-party/readest` 快照成对换版本），业务代码不直接 import 其内部模块，经阅读域 adapter 收口——来源 / commit / 接线备忘见目录内 `VENDOR.md`。
 
 ## UI Demo 展厅（重要规则）
 

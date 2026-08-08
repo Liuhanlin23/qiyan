@@ -6,6 +6,7 @@ import { bookCoverUrl, type BookFormat, type BookPaths, type PickedBookFile } fr
 import type { SuggestEntry } from '../../../shared/suggest'
 import type { TranslateRequest } from '../../../shared/translate'
 import type { TtsSynthesizeRequest, TtsSynthesizeResult } from '../../../shared/tts'
+import type { UpdateEvent } from '../../../shared/updater'
 
 /** 登录凭据桥（加密落盘在 main）。 */
 export const authBridge = {
@@ -71,4 +72,15 @@ export const translateBridge = {
 export const ttsBridge = {
   synthesize: (req: TtsSynthesizeRequest): Promise<TtsSynthesizeResult> =>
     window.ttsAPI.synthesize(req),
+}
+
+/**
+ * 自动更新桥（electron-updater 住 main）。check 返回是否支持（dev 未打包 = false）；
+ * onEvent 订阅 main 的事件推流（返回退订函数）；事件折叠成状态归 lib/appUpdate.ts。
+ */
+export const updaterBridge = {
+  check: (): Promise<boolean> => window.updaterAPI.check(),
+  install: (): Promise<void> => window.updaterAPI.install(),
+  onEvent: (callback: (event: UpdateEvent) => void): (() => void) =>
+    window.updaterAPI.onEvent(callback),
 }
