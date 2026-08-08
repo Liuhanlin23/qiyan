@@ -1,0 +1,45 @@
+# 打包配置（electron-vite build 产出 out/ 之后，由 electron-builder 封成安装包）。
+#
+# App 图标不在这里逐平台写路径：directories.buildResources 指向 build/，electron-builder
+# 会自动认领其中的 icon.icns（macOS）/ icon.ico（Windows）/ icon.png（Linux）。
+# 换图标只改 build/app-icon.png 再按 build/README.md 重新生成那三个文件即可。
+appId: world.nvwa.qiyan
+productName: QiYan
+
+directories:
+  buildResources: build
+  # 默认输出目录是 dist/，但 desktop 的 dist/ 已被 design-system 的 tsup 产物占用
+  # （package.json 的 module / types / exports 都指向它），故让安装包落到 release/。
+  output: release
+
+# 白名单：只带构建产物与 package.json。node_modules 里的 production 依赖
+# 由 electron-builder 自动追加，无需在此列出；src/ 与各类配置文件因此天然被挡在包外。
+#
+# 依赖分类约定（electron-vite 官方惯例，这里依赖它保持包体干净）：
+# package.json 的 dependencies 只放 main 进程运行时 require 的包（better-sqlite3 / drizzle-orm / ws，
+# 见 out/main/index.js 顶部）；renderer 的依赖一律进 devDependencies —— vite 已把它们打进
+# out/renderer，node_modules 里那份不该进包。新增依赖时按「哪个进程在运行时用它」归类，
+# 归类对了这里就永远不需要手写 !node_modules/... 排除项。
+files:
+  - out/**
+  - package.json
+
+# drizzle migration 是运行时按目录读取的真实文件，必须解包到 resources/ 下，不能待在 asar 里。
+# 目标路径与 src/main/db.ts 的 migrationsFolder() 一一对应，改这里记得同步改那里。
+extraResources:
+  - from: drizzle
+    to: drizzle
+
+# better-sqlite3 的 .node 无法从 asar 内 dlopen，必须解包到 app.asar.unpacked/。
+asarUnpack:
+  - '**/*.node'
+
+win:
+  target: nsis
+
+mac:
+  target: dmg
+
+linux:
+  # 不用默认值：默认会连 snap 一起打，而 snapcraft 只在 Linux 上装得起来。
+  target: AppImage

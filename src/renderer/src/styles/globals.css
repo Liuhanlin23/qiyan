@@ -1,0 +1,45 @@
+/* 入口 + 全局基础。
+   顺序: 引擎 → token 值 → 类名接线 → 暗色变体 → 基础重置。
+   main.tsx 只 import 这一个文件。 */
+@import "tailwindcss";
+@import "./fonts.css";
+@import "./primitives.css";
+@import "./system.css";
+@import "./theme.css";
+@import "./button.css";
+@import "./overlays.css";
+@import "./speaker.css";
+
+/* 暗色变体: data-mode=dark 驱动(供 dark: 前缀用; 语义色本身已在 system.css 自动换值) */
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
+@layer base {
+  /* 未指定颜色的边框走细线色, 而非 Tailwind 默认的 currentColor */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border-300);
+  }
+
+  /* 原生细滚动条(全站): macOS overlay 风格, thumb=--scrollbar-thumb(border-300/35%), 透明轨道, 自动隐藏不占布局。
+     实测真站全局 * { scrollbar-width:thin; scrollbar-color:hsla(border-300/35%) transparent } 规则。 */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  /* 焦点环: 可选 .can-focus, focus-visible 时显示 2px 强调色描边(无布局跳动) */
+  .can-focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .can-focus:focus-visible {
+    outline-color: var(--accent-100);
+    transition: outline-color 0.2s;
+  }
+}

@@ -1,0 +1,18 @@
+/* 自托管开源字体 (SIL OFL)。woff2 在 ../assets/fonts/，路径由 Vite 重写(适配 file://)。
+   Lora → --font-serif(正文/标题/斜体)；Geist Mono → --font-mono(代码)。字体族栈接线见 ./theme.css。 */
+
+/* ---- Lora (serif) ---- */
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/lora-400.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/lora-500.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/lora-600.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/lora-700.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/lora-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 500; font-display: swap; src: url("../assets/fonts/lora-500-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 600; font-display: swap; src: url("../assets/fonts/lora-600-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 700; font-display: swap; src: url("../assets/fonts/lora-700-italic.woff2") format("woff2"); }
+
+/* ---- Geist Mono (mono) ---- */
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/geist-mono-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/geist-mono-500.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/geist-mono-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/geist-mono-700.woff2") format("woff2"); }

@@ -1,0 +1,412 @@
+{
+  "accent": "american",
+  "source": "https://americanipachart.com/",
+  "attribution": "Audio courtesy of americanipachart.com (Fabien Snauwaert)",
+  "total": 39,
+  "groups": [
+    {
+      "id": "monophthong",
+      "label": "单元音"
+    },
+    {
+      "id": "diphthong",
+      "label": "双元音"
+    },
+    {
+      "id": "consonant",
+      "label": "辅音"
+    }
+  ],
+  "items": [
+    {
+      "index": 1,
+      "group": "monophthong",
+      "ipa": "u",
+      "word": "blue",
+      "soundAudio": "audio/01_sound.mp3",
+      "wordAudio": "audio/01_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-BLUE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-BLUE.mp3"
+    },
+    {
+      "index": 2,
+      "group": "monophthong",
+      "ipa": "ɑ",
+      "word": "coffee",
+      "soundAudio": "audio/02_sound.mp3",
+      "wordAudio": "audio/02_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-COFFEE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-COFFEE.mp3"
+    },
+    {
+      "index": 3,
+      "group": "monophthong",
+      "ipa": "ə",
+      "word": "dust",
+      "soundAudio": "audio/03_sound.mp3",
+      "wordAudio": "audio/03_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-DUST.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-DUST.mp3"
+    },
+    {
+      "index": 4,
+      "group": "monophthong",
+      "ipa": "i",
+      "word": "green",
+      "soundAudio": "audio/04_sound.mp3",
+      "wordAudio": "audio/04_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-GREEN.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-GREEN.mp3"
+    },
+    {
+      "index": 5,
+      "group": "monophthong",
+      "ipa": "ɔ",
+      "word": "mauve",
+      "soundAudio": "audio/05_sound.mp3",
+      "wordAudio": "audio/05_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-MAUVE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-MAUVE.mp3"
+    },
+    {
+      "index": 6,
+      "group": "monophthong",
+      "ipa": "ɪ",
+      "word": "pink",
+      "soundAudio": "audio/06_sound.mp3",
+      "wordAudio": "audio/06_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-PINK.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-PINK.mp3"
+    },
+    {
+      "index": 7,
+      "group": "monophthong",
+      "ipa": "ɝ",
+      "word": "purple",
+      "soundAudio": "audio/07_sound.mp3",
+      "wordAudio": "audio/07_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-PURPLE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-PURPLE.mp3"
+    },
+    {
+      "index": 8,
+      "group": "monophthong",
+      "ipa": "ɛ",
+      "word": "red",
+      "soundAudio": "audio/08_sound.mp3",
+      "wordAudio": "audio/08_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-RED.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-RED.mp3"
+    },
+    {
+      "index": 9,
+      "group": "monophthong",
+      "ipa": "æ",
+      "word": "sand",
+      "soundAudio": "audio/09_sound.mp3",
+      "wordAudio": "audio/09_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-SAND.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-SAND.mp3"
+    },
+    {
+      "index": 10,
+      "group": "monophthong",
+      "ipa": "ʊ",
+      "word": "wood",
+      "soundAudio": "audio/10_sound.mp3",
+      "wordAudio": "audio/10_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-WOOD.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-WOOD.mp3"
+    },
+    {
+      "index": 11,
+      "group": "diphthong",
+      "ipa": "aʊ",
+      "word": "brown",
+      "soundAudio": "audio/11_sound.mp3",
+      "wordAudio": "audio/11_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-BROWN.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-BROWN.mp3"
+    },
+    {
+      "index": 12,
+      "group": "diphthong",
+      "ipa": "oʊ",
+      "word": "gold",
+      "soundAudio": "audio/12_sound.mp3",
+      "wordAudio": "audio/12_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-GOLD.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-GOLD.mp3"
+    },
+    {
+      "index": 13,
+      "group": "diphthong",
+      "ipa": "eɪ",
+      "word": "jade",
+      "soundAudio": "audio/13_sound.mp3",
+      "wordAudio": "audio/13_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-JADE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-JADE.mp3"
+    },
+    {
+      "index": 14,
+      "group": "diphthong",
+      "ipa": "aɪ",
+      "word": "lime",
+      "soundAudio": "audio/14_sound.mp3",
+      "wordAudio": "audio/14_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-LIME.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-LIME.mp3"
+    },
+    {
+      "index": 15,
+      "group": "diphthong",
+      "ipa": "ɔɪ",
+      "word": "turquoise",
+      "soundAudio": "audio/15_sound.mp3",
+      "wordAudio": "audio/15_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-TURQUOISE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-TURQUOISE.mp3"
+    },
+    {
+      "index": 16,
+      "group": "consonant",
+      "ipa": "b",
+      "word": "bear",
+      "soundAudio": "audio/16_sound.mp3",
+      "wordAudio": "audio/16_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-BEAR.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-BEAR.mp3"
+    },
+    {
+      "index": 17,
+      "group": "consonant",
+      "ipa": "v",
+      "word": "beaver",
+      "soundAudio": "audio/17_sound.mp3",
+      "wordAudio": "audio/17_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-BEAVER.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-BEAVER.mp3"
+    },
+    {
+      "index": 18,
+      "group": "consonant",
+      "ipa": "k",
+      "word": "cat",
+      "soundAudio": "audio/18_sound.mp3",
+      "wordAudio": "audio/18_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-CAT.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-CAT.mp3"
+    },
+    {
+      "index": 19,
+      "group": "consonant",
+      "ipa": "tʃ",
+      "word": "chicken",
+      "soundAudio": "audio/19_sound.mp3",
+      "wordAudio": "audio/19_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-CHICKEN.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-CHICKEN.mp3"
+    },
+    {
+      "index": 20,
+      "group": "consonant",
+      "ipa": "n",
+      "word": "dinosaur",
+      "soundAudio": "audio/20_sound.mp3",
+      "wordAudio": "audio/20_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-DINOSAUR.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-DINOSAUR.mp3"
+    },
+    {
+      "index": 21,
+      "group": "consonant",
+      "ipa": "d",
+      "word": "dog",
+      "soundAudio": "audio/21_sound.mp3",
+      "wordAudio": "audio/21_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-DOG.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-DOG.mp3"
+    },
+    {
+      "index": 22,
+      "group": "consonant",
+      "ipa": "ð",
+      "word": "feather",
+      "soundAudio": "audio/22_sound.mp3",
+      "wordAudio": "audio/22_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-FEATHER.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-FEATHER.mp3"
+    },
+    {
+      "index": 23,
+      "group": "consonant",
+      "ipa": "f",
+      "word": "frog",
+      "soundAudio": "audio/23_sound.mp3",
+      "wordAudio": "audio/23_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-FROG.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-FROG.mp3"
+    },
+    {
+      "index": 24,
+      "group": "consonant",
+      "ipa": "dʒ",
+      "word": "giraffe",
+      "soundAudio": "audio/24_sound.mp3",
+      "wordAudio": "audio/24_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-GIRAFFE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-GIRAFFE.mp3"
+    },
+    {
+      "index": 25,
+      "group": "consonant",
+      "ipa": "g",
+      "word": "goat",
+      "soundAudio": "audio/25_sound.mp3",
+      "wordAudio": "audio/25_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-GOAT.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-GOAT.mp3"
+    },
+    {
+      "index": 26,
+      "group": "consonant",
+      "ipa": "h",
+      "word": "horse",
+      "soundAudio": "audio/26_sound.mp3",
+      "wordAudio": "audio/26_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-HORSE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-HORSE.mp3"
+    },
+    {
+      "index": 27,
+      "group": "consonant",
+      "ipa": "ɫ",
+      "word": "lion",
+      "soundAudio": "audio/27_sound.mp3",
+      "wordAudio": "audio/27_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-LION.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-LION.mp3"
+    },
+    {
+      "index": 28,
+      "group": "consonant",
+      "ipa": "m",
+      "word": "mouse",
+      "soundAudio": "audio/28_sound.mp3",
+      "wordAudio": "audio/28_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-MOUSE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-MOUSE.mp3"
+    },
+    {
+      "index": 29,
+      "group": "consonant",
+      "ipa": "θ",
+      "word": "panther",
+      "soundAudio": "audio/29_sound.mp3",
+      "wordAudio": "audio/29_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-PANTHER.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-PANTHER.mp3"
+    },
+    {
+      "index": 30,
+      "group": "consonant",
+      "ipa": "ŋ",
+      "word": "penguin",
+      "soundAudio": "audio/30_sound.mp3",
+      "wordAudio": "audio/30_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-PENGUIN.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-PENGUIN.mp3"
+    },
+    {
+      "index": 31,
+      "group": "consonant",
+      "ipa": "p",
+      "word": "pig",
+      "soundAudio": "audio/31_sound.mp3",
+      "wordAudio": "audio/31_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-PIG.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-PIG.mp3"
+    },
+    {
+      "index": 32,
+      "group": "consonant",
+      "ipa": "ɹ",
+      "word": "rabbit",
+      "soundAudio": "audio/32_sound.mp3",
+      "wordAudio": "audio/32_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-RABBIT.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-RABBIT.mp3"
+    },
+    {
+      "index": 33,
+      "group": "consonant",
+      "ipa": "ʃ",
+      "word": "sheep",
+      "soundAudio": "audio/33_sound.mp3",
+      "wordAudio": "audio/33_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-SHEEP.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-SHEEP.mp3"
+    },
+    {
+      "index": 34,
+      "group": "consonant",
+      "ipa": "s",
+      "word": "snake",
+      "soundAudio": "audio/34_sound.mp3",
+      "wordAudio": "audio/34_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-SNAKE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-SNAKE.mp3"
+    },
+    {
+      "index": 35,
+      "group": "consonant",
+      "ipa": "ʒ",
+      "word": "television",
+      "soundAudio": "audio/35_sound.mp3",
+      "wordAudio": "audio/35_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-TELEVISION.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-TELEVISION.mp3"
+    },
+    {
+      "index": 36,
+      "group": "consonant",
+      "ipa": "t",
+      "word": "turtle",
+      "soundAudio": "audio/36_sound.mp3",
+      "wordAudio": "audio/36_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-TURTLE.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-TURTLE.mp3"
+    },
+    {
+      "index": 37,
+      "group": "consonant",
+      "ipa": "w",
+      "word": "wolf",
+      "soundAudio": "audio/37_sound.mp3",
+      "wordAudio": "audio/37_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-WOLF.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-WOLF.mp3"
+    },
+    {
+      "index": 38,
+      "group": "consonant",
+      "ipa": "j",
+      "word": "yak",
+      "soundAudio": "audio/38_sound.mp3",
+      "wordAudio": "audio/38_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-YAK.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-YAK.mp3"
+    },
+    {
+      "index": 39,
+      "group": "consonant",
+      "ipa": "z",
+      "word": "zebra",
+      "soundAudio": "audio/39_sound.mp3",
+      "wordAudio": "audio/39_word.mp3",
+      "sourceSoundUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/PHONEME-ZEBRA.mp3",
+      "sourceWordUrl": "https://bilingueanglaismedia.s3.amazonaws.com/blog/infographics/api/mp3/NORMAL-ZEBRA.mp3"
+    }
+  ]
+}

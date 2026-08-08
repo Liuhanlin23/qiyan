@@ -1,0 +1,1 @@
+ALTER TABLE `user_setting` ADD `new_card_order` text DEFAULT 'random' NOT NULL;

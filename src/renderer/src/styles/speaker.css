@@ -1,0 +1,51 @@
+/* 发音喇叭「正在出声」动效（起播中另走 spinner，见 SpeakerIcon）—— 喇叭体不动，只让两道声波弧循环明灭，
+   内弧先亮、外弧延后 .22s 跟上,读起来是一圈圈往外推的声波。
+   只动 opacity(不动 transform/尺寸): 图标在 size-3.5 的音标药丸里也不会撑动行高。
+   两条弧各自一条 animation, Tailwind 的 animate-* 表达不了「同一图标内不同延迟」, 故手写。 */
+@keyframes cds-speaker-wave {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+.speaker-wave-inner {
+  animation: cds-speaker-wave 0.9s ease-in-out infinite;
+}
+.speaker-wave-outer {
+  animation: cds-speaker-wave 0.9s ease-in-out 0.22s infinite;
+}
+
+/* 降低动态偏好: 停掉循环, 弧线定格在全亮(仍靠颜色表明在播)。
+   起播 spinner 不在此列 —— 停掉它只会剩个静止圆弧, 看着像坏了。 */
+@media (prefers-reduced-motion: reduce) {
+  .speaker-wave-inner,
+  .speaker-wave-outer {
+    animation: none;
+  }
+}
+
+/* 起播中的 spinner —— 转圈 + 延后 150ms 才淡入。
+   音频命中缓存时起播不到 150ms, spinner 全程停在 opacity:0 从未显形, 图标就不会在
+   「喇叭 → 转圈 → 喇叭」之间闪一下; 只有真慢的那一次才等到它露面。
+   两条 animation 并挂一个元素(转 + 淡入), Tailwind 的 animate-spin 表达不了, 故手写。 */
+@keyframes cds-speaker-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes cds-speaker-spin-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.speaker-spinner {
+  opacity: 0;
+  animation:
+    cds-speaker-spin 1s linear infinite,
+    cds-speaker-spin-in 0.1s ease-out 0.15s forwards;
+}

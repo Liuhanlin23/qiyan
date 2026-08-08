@@ -1,0 +1,531 @@
+/* 系统层 (system) —— 语义色(引用原始层) + cds 设计 token(去业务/去前缀)。架构与改动指南见 ./README.md */
+/* 亮色 = 默认(:root); 暗色 = [data-mode=dark] 覆盖。改色优先改 primitives.css。 */
+
+:root {
+  /* ═══ 语义色 (System A) — 引用原始层 ═══ */
+  /* bg */
+  --bg-000: var(--gray-0);
+  --bg-100: var(--gray-20);
+  --bg-200: var(--gray-40);
+  --bg-300: var(--gray-50);
+  --bg-400: var(--gray-80);
+  --bg-500: var(--gray-80);
+
+  /* text */
+  --text-000: var(--gray-860);
+  --text-100: var(--gray-860);
+  --text-200: var(--gray-700);
+  --text-300: var(--gray-700);
+  --text-400: var(--gray-450);
+  --text-500: var(--gray-450);
+
+  /* accent */
+  --accent-000: var(--blue-600);
+  --accent-100: var(--blue-500);
+  --accent-200: var(--blue-500);
+  --accent-900: var(--blue-100);
+
+  /* danger */
+  --danger-000: var(--red-600);
+  --danger-100: var(--red-450);
+  --danger-200: var(--red-450);
+  --danger-900: var(--red-100);
+
+  /* success */
+  --success-000: var(--green-600);
+  --success-100: var(--green-450);
+  --success-200: var(--green-450);
+  --success-900: var(--green-100);
+
+  /* warning */
+  --warning-000: var(--yellow-600);
+  --warning-100: var(--yellow-450);
+  --warning-200: var(--yellow-450);
+  --warning-900: var(--yellow-100);
+
+  /* brand */
+  --brand-000: var(--brand-clay-emphasized);
+  --brand-100: var(--brand-clay-emphasized);
+  --brand-200: var(--brand-clay);
+  --brand-900: var(--always-black);
+
+  /* oncolor */
+  --oncolor-100: var(--always-white);
+  --oncolor-200: #f8f8f7;
+  --oncolor-300: #f8f8f7;
+
+  /* pictogram */
+  --pictogram-100: var(--gray-80);
+  --pictogram-200: var(--gray-100);
+  --pictogram-300: var(--gray-0);
+  --pictogram-400: var(--gray-20);
+
+  /* always */
+  --always-black: #000000;
+  --always-white: #ffffff;
+
+  /* border */
+  --border-100: color-mix(in srgb, var(--gray-810) 40%, transparent);
+  --border-200: color-mix(in srgb, var(--gray-810) 30%, transparent);
+  --border-300: color-mix(in srgb, var(--gray-810) 15%, transparent);
+  --border-400: color-mix(in srgb, var(--gray-810) 15%, transparent);
+
+  /* scrollbar — 原生细滚动条 thumb(全站 * 规则用; 实测真站 rgba(31,31,30,0.35)) */
+  --scrollbar-thumb: rgba(31, 31, 30, 0.35);
+
+  /* ═══ cds 设计 token ═══ */
+  /* fill — 交互填充 */
+  --fill-accent: #2a78d6;
+  --fill-brand: #c6613f;
+  --fill-danger: #d03b3b;
+  --fill-secondary: #ffffff1a;
+  --fill-success: #009300;
+  --fill-warning: #fab219;
+  --fill-secondary-ring: #0b0b0b1a;
+  --fill-accent-hover: #3987e5;
+  --fill-brand-hover: #d97757;
+  --fill-danger-hover: #e34948;
+  --fill-warning-hover: #eda100;
+  --fill-success-hover: #0ca30c;
+  --fill-control: #0b0b0b1a;
+  --fill-field: #ffffff80;
+  --fill-ghost-hover: #0b0b0b0d;
+  --fill-primary: #0b0b0b;
+  --fill-primary-hover: #2c2c2a;
+  --fill-secondary-hover: #0b0b0b0d;
+  --fill-disabled: #0b0b0b0d;
+  --fill-control-hover: #0b0b0b33;
+
+  /* bg — 状态背景 */
+  --bg-accent: #cde2fb;
+  --bg-danger: #fad6d6;
+  --bg-neutral: #0b0b0b0d;
+  --bg-neutral-hover: #0b0b0b1a;
+  --bg-success: #caeac7;
+  --bg-warning: #f9dca4;
+  --bg-accent-chip: #cde2fb;
+  --bg-danger-chip: #fad6d6;
+  --bg-success-chip: #caeac7;
+  --bg-warning-chip: #f9dca4;
+  --bg-neutral-chip: #0b0b0b0d;
+  --bg-neutral-chip-hover: #0b0b0b1a;
+
+  /* text — 文字角色 */
+  --text-muted: #898781;
+  --text-accent: #184f95;
+  --text-secondary: #52514e;
+  --text-primary: #0b0b0b;
+  --text-danger: #8e2626;
+  --text-disabled: #0b0b0b59;
+  --text-success: #006300;
+  --text-warning: #734500;
+
+  /* border — 边框角色 */
+  --border: #0b0b0b1a;
+  --border-accent: #86b6ef;
+  --border-danger: #f09595;
+  --border-strong: #0b0b0b33;
+  --border-stronger: #0b0b0b66;
+  --border-success: #73cb6d;
+  --border-warning: #eda100;
+
+  /* on — 彩底上文字 */
+  --on-accent: #ffffff;
+  --on-brand: #ffffff;
+  --on-danger: #ffffff;
+  --on-success: #0b0b0b;
+  --on-warning: #0b0b0b;
+  --on-primary: #ffffff;
+
+  /* alpha — 叠加透明阶 */
+  --alpha-2: #0b0b0b1a;
+  --alpha-1: #0b0b0b0d;
+  --alpha-3: #0b0b0b33;
+  --alpha-4: #0b0b0b59;
+  --alpha-5: #0b0b0b80;
+  --alpha-7: #0b0b0bb3;
+  --alpha-0: #0b0b0b00;
+  --alpha-6: #0b0b0b99;
+  --alpha-8: #0b0b0bd9;
+  --alpha-9: #0b0b0bf2;
+
+  /* surface — 表面/卡片 */
+  --surface-3: #ffffff;
+  --surface-1: #fcfcfb;
+  --surface-0: #f9f9f7;
+  --surface-2: #ffffff;
+  --surface-panel: #ffffff;
+  --surface-popover: #ffffff;
+
+  /* shadow — 阴影 */
+  --shadow-sm: 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 hsl(from #0b0b0b h s l / 8%);
+  --shadow-md: 0 2px 4px 0 hsl(from #0b0b0b h s l / 7%), 0 6px 16px 0 hsl(from #0b0b0b h s l / 8%);
+  --shadow-lg: 0 4px 8px 0 hsl(from #0b0b0b h s l / 8%), 0 12px 28px -2px hsl(from #0b0b0b h s l / 8%);
+  --shadow-popover: 0 8px 24px #0000001f, 0 2px 6px #00000014;
+  /* panel(菜单/弹层): 亮色 1px 外描边环 + popover 投影。真站菜单 box-shadow 实测层级。 */
+  --shadow-panel: inset 0 0 0 0 #0b0b0b1a, 0 0 0 1px #0b0b0b1a, 0 8px 24px #0000001f, 0 2px 6px #00000014;
+  /* panel-sm(对话框 Dialog): 1px 外描边环 + shadow-sm 浅投影(比 panel 弱)。真站 shadow-panel-sm 实测。 */
+  --shadow-panel-sm: inset 0 0 0 0 #0b0b0b1a, 0 0 0 1px #0b0b0b1a, 0 1px 2px 0 #0b0b0b0f, 0 2px 8px 0 #0b0b0b14;
+  /* card-ring(卡片): 仅 1px 外描边环, 无投影。真站 shadow-card-ring 实测。 */
+  --shadow-card-ring: inset 0 0 0 0 #0b0b0b1a, 0 0 0 1px #0b0b0b1a;
+  /* tooltip 投影: 亮色 = shadow-sm; 暗色换内描边环版(见 dark 覆盖)。 */
+  --shadow-tooltip: 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 hsl(from #0b0b0b h s l / 8%);
+  /* field 静止描边环(输入框): 1px 内描边。实测 = inset 1px border 色。 */
+  --shadow-field-ring: inset 0 0 0 1px #0b0b0b1a;
+  --shadow-color: #0b0b0b14;
+
+  /* ring — 内环 */
+  --ring-inner: 0px;
+  --ring-outer: 1px;
+  --ring-color: #0b0b0b1a;
+
+  /* focus — 焦点环 */
+  --focus-shadow: inset 0 0 0 1px #f9f9f7, 0 0 0 1px #2a78d6, 0 0 6px 1px #cde2fb;
+
+  /* backdrop — 遮罩 */
+  --backdrop: #00000066;
+
+  /* tooltip — 气泡 */
+  --tooltip-fg: #ffffff;
+  --tooltip-bg: #0b0b0b;
+
+  /* switch — 开关(轨道高 20, 宽 = h*1.8 = 36, 滑块 16) */
+  --switch-h: 20px;
+  --switch-knob: #ffffff;
+  --switch-track: #0b0b0b33;
+  --switch-track-hover: #0b0b0b59;
+
+  /* checkbox — 勾选框 */
+  --checkbox: 16px;
+  --checkbox-radius: 4px;
+  --checkbox-glyph: 16px;
+
+  /* segmented — 分段控件 */
+  --segmented-control-thumb: #ffffff;
+  --segmented-control-track: #0b0b0b0d;
+
+  /* skeleton — 骨架屏 */
+  --skeleton-base: #0b0b0b1a;
+  --skeleton-sheen: #0b0b0b1a;
+
+  /* avatar — 头像尺寸 */
+  --avatar-lg: 36px;
+  --avatar-md: 28px;
+  --avatar-sm: 20px;
+
+  /* button — 按钮叠加 */
+  --button-on-content-ring: #ffffff59;
+  --button-on-content: #ffffff99;
+  --button-on-content-hover: #ffffffb3;
+
+  /* font — 字体/字号/字重 */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-caption: 11px;
+  --font-size-footnote: 12px;
+  --font-size-body: 13px;
+  --font-size-code: 12px;
+  --font-size-heading: 14px;
+  --font-size-title: 20px;
+  --font-weight-regular: 400;
+
+  /* leading — 行高 */
+  --leading-body: 18px;
+  --leading-footnote: 14px;
+  --leading-code: 17px;
+  --leading-caption: 14px;
+  --leading-heading: 18px;
+  --leading-title: 24px;
+
+  /* reading — 阅读正文排版(对齐 readest;与界面 --font-size-* 体系解耦) */
+  --reading-font-size: 16px; /* 正文字号(readest defaultFontSize) */
+  --reading-line-height: 1.6; /* 行高(readest 拉丁 1.4 / CJK 1.6,混排取 1.6) */
+  --reading-measure: 720px; /* 正文最大行宽(readest maxInlineSize) */
+  --reading-margin-x: 48px; /* 左右留白(参照 Apple Books 放大四周留白;原 24=px-6 偏挤) */
+  --reading-para-gap: 12px; /* 段间距(readest 0.6em≈10,取 12 略松) */
+  /* 注:上下留白由阅读器 chrome 避让决定(正文容器的 pt/pb),不设为阅读 token */
+
+  /* dur — 时长 */
+  --dur-base: .2s;
+  --dur-fast: 60ms;
+  --dur-snap: .12s;
+  --dur-slow: .45s;
+
+  /* ease — 缓动 */
+  --ease-out: cubic-bezier(.165, .84, .44, 1);
+  --ease-overshoot: cubic-bezier(.34, 1.3, .64, 1);
+  --ease-snap: cubic-bezier(.32, .72, 0, 1);
+
+  /* gap — 间隙 */
+  --gap-xs: 6px;
+  --gap-lg: 20px;
+  --gap-md: 12px;
+  --gap-xl: 32px;
+  --gap-sm: 8px;
+
+  /* pad — 内边距 */
+  --pad-lg: 12px;
+  --pad-sm: 6px;
+  --pad-md: 8px;
+  --pad-xl: 20px;
+
+  /* h — 控件高 */
+  --h-control-nested: 18px;
+  --h-control: 24px;
+
+  /* icon — 图标 */
+  --icon: 16px;
+
+  /* radius — 圆角 */
+  --radius: 6px;
+
+  /* z — 层级 */
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-toast: 60;
+  --z-tooltip: 50;
+
+  /* scroll — 滚动渐隐 */
+  --scroll-fade-size: 28px;
+
+  /* cursor — 光标 */
+  --cursor-interactive: pointer;
+
+  /* page — 页面 */
+  --page-bg: #f9f9f7;
+
+  /* black — 纯黑 */
+  --black: #000000;
+
+  /* btn — 按钮弹簧 */
+  --btn-spring: linear(0, .2459, .6526, .9468, 1.0764, 1.0915, 1.0585, 1.0219, .9993, .9914, .9921, .9957, .9988, 1.0004, 1);
+}
+
+[data-mode=dark] {
+  --bg-000: var(--gray-750);
+  --bg-100: var(--gray-800);
+  --bg-200: var(--gray-840);
+  --bg-300: var(--gray-860);
+  --bg-400: var(--gray-900);
+  --bg-500: var(--gray-900);
+  --text-000: var(--gray-20);
+  --text-100: var(--gray-20);
+  --text-200: var(--gray-200);
+  --text-300: var(--gray-200);
+  --text-400: var(--gray-350);
+  --text-500: var(--gray-350);
+  --accent-000: var(--blue-200);
+  --accent-100: var(--blue-350);
+  --accent-200: var(--blue-350);
+  --accent-900: var(--blue-750);
+  --danger-000: var(--red-200);
+  --danger-100: var(--red-400);
+  --danger-200: var(--red-400);
+  --danger-900: var(--red-750);
+  --success-000: var(--green-200);
+  --success-100: var(--green-400);
+  --success-200: var(--green-400);
+  --success-900: var(--green-750);
+  --warning-000: var(--yellow-200);
+  --warning-100: var(--yellow-400);
+  --warning-200: var(--yellow-400);
+  --warning-900: var(--yellow-750);
+  --brand-100: var(--brand-clay);
+  --pictogram-100: var(--gray-650);
+  --pictogram-200: var(--gray-700);
+  --pictogram-300: var(--gray-750);
+  --pictogram-400: var(--gray-800);
+  --border-100: color-mix(in srgb, var(--gray-100) 40%, transparent);
+  --border-200: color-mix(in srgb, var(--gray-100) 30%, transparent);
+  --border-300: color-mix(in srgb, var(--gray-100) 15%, transparent);
+  --border-400: color-mix(in srgb, var(--gray-100) 15%, transparent);
+  --scrollbar-thumb: rgba(226, 225, 218, 0.35);
+  --border: #ffffff1a;
+  --bg-accent: #032042;
+  --text-accent: #6da7ec;
+  --alpha-2: #ffffff1a;
+  --alpha-1: #ffffff0d;
+  --ring-color: #ffffff1a;
+  --surface-3: #383835;
+  --border-accent: #0d366b;
+  --alpha-3: #ffffff33;
+  --alpha-4: #ffffff59;
+  --border-danger: #641919;
+  --border-strong: #ffffff33;
+  --border-stronger: #ffffff66;
+  --border-success: #074506;
+  --border-warning: #512e00;
+  --surface-1: #1a1a19;
+  --button-on-content: #0000008c;
+  --on-primary: #0b0b0b;
+  /* --page-bg: #0d0d0d; */
+  --page-bg: var(--gray-800);
+  --segmented-control-thumb: #ffffff33;
+  --segmented-control-track: #ffffff0d;
+  --skeleton-base: #ffffff1a;
+  --switch-track: #ffffff33;
+  --text-secondary: #c3c2b7;
+  --tooltip-bg: #383835;
+  --alpha-5: #ffffff80;
+  --alpha-7: #ffffffb3;
+  --backdrop: #00000080;
+  --bg-danger: #3c0e0e;
+  --fill-control: #ffffff1a;
+  --fill-field: #ffffff1a;
+  --fill-ghost-hover: #ffffff0d;
+  --fill-primary: #ffffff;
+  --bg-neutral: #ffffff0d;
+  --bg-neutral-hover: #ffffff1a;
+  --bg-success: #11260f;
+  --surface-0: #0d0d0d;
+  --surface-2: #2c2c2a;
+  --surface-panel: #2c2c2a;
+  --surface-popover: #383835;
+  --bg-warning: #311a00;
+  --text-primary: #ffffff;
+  --text-danger: #ec7e7e;
+  --text-disabled: #ffffff59;
+  --text-success: #0ca30c;
+  --text-warning: #db9300;
+  --shadow-color: #0000003d;
+  --shadow-panel: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 8px 24px #00000052, 0 2px 6px #00000033;
+    --shadow-panel-sm: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 1px 2px 0 #0b0b0b0f, 0 2px 8px 0 #0000003d;
+    --shadow-card-ring: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a;
+    --shadow-tooltip: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 #0000003d;
+    --shadow-sm: 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 #0000003d;
+    --shadow-field-ring: inset 0 0 0 1px #00000000;
+    --focus-shadow: inset 0 0 0 1px #0d0d0d, 0 0 0 1px #2a78d6, 0 0 6px 1px #184f9599;
+  --button-on-content-hover: #000000a6;
+  --fill-primary-hover: #e1e0d9;
+  --fill-secondary-hover: #ffffff24;
+  --skeleton-sheen: #ffffff1a;
+  --switch-track-hover: #ffffff59;
+  --alpha-0: #ffffff00;
+  --alpha-6: #ffffff99;
+  --alpha-8: #ffffffd9;
+  --alpha-9: #fffffff2;
+  --fill-disabled: #ffffff0d;
+  --fill-control-hover: #ffffff33;
+  --bg-accent-chip: #032042;
+  --bg-danger-chip: #3c0e0e;
+  --bg-success-chip: #11260f;
+  --bg-warning-chip: #311a00;
+  --bg-neutral-chip: #ffffff0d;
+  --bg-neutral-chip-hover: #ffffff1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode=light]) {
+    --bg-000: var(--gray-750);
+    --bg-100: var(--gray-800);
+    --bg-200: var(--gray-840);
+    --bg-300: var(--gray-860);
+    --bg-400: var(--gray-900);
+    --bg-500: var(--gray-900);
+    --text-000: var(--gray-20);
+    --text-100: var(--gray-20);
+    --text-200: var(--gray-200);
+    --text-300: var(--gray-200);
+    --text-400: var(--gray-350);
+    --text-500: var(--gray-350);
+    --accent-000: var(--blue-200);
+    --accent-100: var(--blue-350);
+    --accent-200: var(--blue-350);
+    --accent-900: var(--blue-750);
+    --danger-000: var(--red-200);
+    --danger-100: var(--red-400);
+    --danger-200: var(--red-400);
+    --danger-900: var(--red-750);
+    --success-000: var(--green-200);
+    --success-100: var(--green-400);
+    --success-200: var(--green-400);
+    --success-900: var(--green-750);
+    --warning-000: var(--yellow-200);
+    --warning-100: var(--yellow-400);
+    --warning-200: var(--yellow-400);
+    --warning-900: var(--yellow-750);
+    --brand-100: var(--brand-clay);
+    --pictogram-100: var(--gray-650);
+    --pictogram-200: var(--gray-700);
+    --pictogram-300: var(--gray-750);
+    --pictogram-400: var(--gray-800);
+    --border-100: color-mix(in srgb, var(--gray-100) 40%, transparent);
+    --border-200: color-mix(in srgb, var(--gray-100) 30%, transparent);
+    --border-300: color-mix(in srgb, var(--gray-100) 15%, transparent);
+    --border-400: color-mix(in srgb, var(--gray-100) 15%, transparent);
+    --scrollbar-thumb: rgba(226, 225, 218, 0.35);
+    --border: #ffffff1a;
+    --bg-accent: #032042;
+    --text-accent: #6da7ec;
+    --alpha-2: #ffffff1a;
+    --alpha-1: #ffffff0d;
+    --ring-color: #ffffff1a;
+    --surface-3: #383835;
+    --border-accent: #0d366b;
+    --alpha-3: #ffffff33;
+    --alpha-4: #ffffff59;
+    --border-danger: #641919;
+    --border-strong: #ffffff33;
+    --border-stronger: #ffffff66;
+    --border-success: #074506;
+    --border-warning: #512e00;
+    --surface-1: #1a1a19;
+    --button-on-content: #0000008c;
+    --on-primary: #0b0b0b;
+    /* --page-bg: #0d0d0d; */
+    --page-bg: var(--gray-800);
+    --segmented-control-thumb: #ffffff33;
+    --segmented-control-track: #ffffff0d;
+    --skeleton-base: #ffffff1a;
+    --switch-track: #ffffff33;
+    --text-secondary: #c3c2b7;
+    --tooltip-bg: #383835;
+    --alpha-5: #ffffff80;
+    --alpha-7: #ffffffb3;
+    --backdrop: #00000080;
+    --bg-danger: #3c0e0e;
+    --fill-control: #ffffff1a;
+    --fill-field: #ffffff1a;
+    --fill-ghost-hover: #ffffff0d;
+    --fill-primary: #ffffff;
+    --bg-neutral: #ffffff0d;
+    --bg-neutral-hover: #ffffff1a;
+    --bg-success: #11260f;
+    --surface-0: #0d0d0d;
+    --surface-2: #2c2c2a;
+    --surface-panel: #2c2c2a;
+    --surface-popover: #383835;
+    --bg-warning: #311a00;
+    --text-primary: #ffffff;
+    --text-danger: #ec7e7e;
+    --text-disabled: #ffffff59;
+    --text-success: #0ca30c;
+    --text-warning: #db9300;
+    --shadow-color: #0000003d;
+    --shadow-panel: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 8px 24px #00000052, 0 2px 6px #00000033;
+    --shadow-panel-sm: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 1px 2px 0 #0b0b0b0f, 0 2px 8px 0 #0000003d;
+    --shadow-card-ring: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a;
+    --shadow-tooltip: inset 0 0 0 1px #ffffff1a, 0 0 0 0 #ffffff1a, 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 #0000003d;
+    --shadow-sm: 0 1px 2px 0 hsl(from #0b0b0b h s l / 6%), 0 2px 8px 0 #0000003d;
+    --shadow-field-ring: inset 0 0 0 1px #00000000;
+    --focus-shadow: inset 0 0 0 1px #0d0d0d, 0 0 0 1px #2a78d6, 0 0 6px 1px #184f9599;
+    --button-on-content-hover: #000000a6;
+    --fill-primary-hover: #e1e0d9;
+    --fill-secondary-hover: #ffffff24;
+    --skeleton-sheen: #ffffff1a;
+    --switch-track-hover: #ffffff59;
+    --alpha-0: #ffffff00;
+    --alpha-6: #ffffff99;
+    --alpha-8: #ffffffd9;
+    --alpha-9: #fffffff2;
+    --fill-disabled: #ffffff0d;
+    --fill-control-hover: #ffffff33;
+    --bg-accent-chip: #032042;
+    --bg-danger-chip: #3c0e0e;
+    --bg-success-chip: #11260f;
+    --bg-warning-chip: #311a00;
+    --bg-neutral-chip: #ffffff0d;
+    --bg-neutral-chip-hover: #ffffff1a;
+  }
+}

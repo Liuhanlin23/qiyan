@@ -1,0 +1,462 @@
+{
+  "accent": "british",
+  "source": "https://englishwithlucy.com/phonemic-chart-guide/",
+  "attribution": "Audio courtesy of English with Lucy (englishwithlucy.com)",
+  "total": 44,
+  "groups": [
+    {
+      "id": "monophthong",
+      "label": "单元音"
+    },
+    {
+      "id": "diphthong",
+      "label": "双元音"
+    },
+    {
+      "id": "consonant",
+      "label": "辅音"
+    }
+  ],
+  "items": [
+    {
+      "index": 1,
+      "group": "monophthong",
+      "ipa": "i:",
+      "word": "sleep",
+      "soundAudio": "audio/01_sound.m4a",
+      "wordAudio": "audio/01_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/1.-iː-sleep-1-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/1.-iː-sleep-2.m4a"
+    },
+    {
+      "index": 2,
+      "group": "monophthong",
+      "ipa": "ɪ",
+      "word": "slip",
+      "soundAudio": "audio/02_sound.m4a",
+      "wordAudio": "audio/02_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/1.-slip-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/1.-slip-2.m4a"
+    },
+    {
+      "index": 3,
+      "group": "monophthong",
+      "ipa": "ʊ",
+      "word": "good",
+      "soundAudio": "audio/03_sound.m4a",
+      "wordAudio": "audio/03_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/3.-good-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/3.-good-2.m4a"
+    },
+    {
+      "index": 4,
+      "group": "monophthong",
+      "ipa": "u:",
+      "word": "food",
+      "soundAudio": "audio/04_sound.m4a",
+      "wordAudio": "audio/04_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/4.-food-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/4.-food-2-1.m4a"
+    },
+    {
+      "index": 5,
+      "group": "monophthong",
+      "ipa": "e",
+      "word": "ten",
+      "soundAudio": "audio/05_sound.m4a",
+      "wordAudio": "audio/05_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/5.-ten-1-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/5.-ten-2-1.m4a"
+    },
+    {
+      "index": 6,
+      "group": "monophthong",
+      "ipa": "ə",
+      "word": "better",
+      "soundAudio": "audio/06_sound.m4a",
+      "wordAudio": "audio/06_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/6.-better-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/6.-better-2.m4a"
+    },
+    {
+      "index": 7,
+      "group": "monophthong",
+      "ipa": "ɜ:",
+      "word": "word",
+      "soundAudio": "audio/07_sound.m4a",
+      "wordAudio": "audio/07_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/7.-word-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/7.-word-2.m4a"
+    },
+    {
+      "index": 8,
+      "group": "monophthong",
+      "ipa": "ɔ:",
+      "word": "more",
+      "soundAudio": "audio/08_sound.m4a",
+      "wordAudio": "audio/08_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/8.-more-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/8.-more-2.m4a"
+    },
+    {
+      "index": 9,
+      "group": "monophthong",
+      "ipa": "æ",
+      "word": "tap",
+      "soundAudio": "audio/09_sound.m4a",
+      "wordAudio": "audio/09_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/9.-tap-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/9.-tap-2.m4a"
+    },
+    {
+      "index": 10,
+      "group": "monophthong",
+      "ipa": "ʌ",
+      "word": "cup",
+      "soundAudio": "audio/10_sound.m4a",
+      "wordAudio": "audio/10_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/10.-cup-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/10.-cup-2.m4a"
+    },
+    {
+      "index": 11,
+      "group": "monophthong",
+      "ipa": "ɑ:",
+      "word": "bar",
+      "soundAudio": "audio/11_sound.m4a",
+      "wordAudio": "audio/11_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/11.-bar-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/11.-bar-2.m4a"
+    },
+    {
+      "index": 12,
+      "group": "monophthong",
+      "ipa": "ɒ",
+      "word": "gone",
+      "soundAudio": "audio/12_sound.m4a",
+      "wordAudio": "audio/12_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/12.-gone-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/12.-gone-2.m4a"
+    },
+    {
+      "index": 13,
+      "group": "diphthong",
+      "ipa": "ɪə",
+      "word": "hear",
+      "soundAudio": "audio/13_sound.m4a",
+      "wordAudio": "audio/13_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/13.-hear-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/13.-hear-2.m4a"
+    },
+    {
+      "index": 14,
+      "group": "diphthong",
+      "ipa": "eɪ",
+      "word": "game",
+      "soundAudio": "audio/14_sound.m4a",
+      "wordAudio": "audio/14_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/14.-game-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/14.-game-2.m4a"
+    },
+    {
+      "index": 15,
+      "group": "diphthong",
+      "ipa": "ʊə",
+      "word": "pure",
+      "soundAudio": "audio/15_sound.m4a",
+      "wordAudio": "audio/15_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/15.-pure-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/15.-pure-2.m4a"
+    },
+    {
+      "index": 16,
+      "group": "diphthong",
+      "ipa": "ɔɪ",
+      "word": "toy",
+      "soundAudio": "audio/16_sound.m4a",
+      "wordAudio": "audio/16_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/16.-toy-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/16.-toy-2.m4a"
+    },
+    {
+      "index": 17,
+      "group": "diphthong",
+      "ipa": "əʊ",
+      "word": "no",
+      "soundAudio": "audio/17_sound.m4a",
+      "wordAudio": "audio/17_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/17.-no-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/17.-no-2.m4a"
+    },
+    {
+      "index": 18,
+      "group": "diphthong",
+      "ipa": "eə",
+      "word": "where",
+      "soundAudio": "audio/18_sound.m4a",
+      "wordAudio": "audio/18_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/18.-where-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/18.-where-2.m4a"
+    },
+    {
+      "index": 19,
+      "group": "diphthong",
+      "ipa": "aɪ",
+      "word": "mine",
+      "soundAudio": "audio/19_sound.m4a",
+      "wordAudio": "audio/19_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/19.-mine-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/19.-mine-2.m4a"
+    },
+    {
+      "index": 20,
+      "group": "diphthong",
+      "ipa": "aʊ",
+      "word": "how",
+      "soundAudio": "audio/20_sound.m4a",
+      "wordAudio": "audio/20_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/20.-how-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/20.-how-2.m4a"
+    },
+    {
+      "index": 21,
+      "group": "consonant",
+      "ipa": "p",
+      "word": "pen",
+      "soundAudio": "audio/21_sound.m4a",
+      "wordAudio": "audio/21_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/21.-pen-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/21.-pen-2.m4a"
+    },
+    {
+      "index": 22,
+      "group": "consonant",
+      "ipa": "f",
+      "word": "fig",
+      "soundAudio": "audio/22_sound.m4a",
+      "wordAudio": "audio/22_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/22.-fig-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/22.-fig-2.m4a"
+    },
+    {
+      "index": 23,
+      "group": "consonant",
+      "ipa": "t",
+      "word": "tip",
+      "soundAudio": "audio/23_sound.m4a",
+      "wordAudio": "audio/23_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/23.-tip-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/23.-tip-2.m4a"
+    },
+    {
+      "index": 24,
+      "group": "consonant",
+      "ipa": "θ",
+      "word": "thought",
+      "soundAudio": "audio/24_sound.m4a",
+      "wordAudio": "audio/24_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/24.-thought-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/24.-thought-2.m4a"
+    },
+    {
+      "index": 25,
+      "group": "consonant",
+      "ipa": "ʧ",
+      "word": "chip",
+      "soundAudio": "audio/25_sound.m4a",
+      "wordAudio": "audio/25_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/25.-chip-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/25.-chip-2.m4a"
+    },
+    {
+      "index": 26,
+      "group": "consonant",
+      "ipa": "s",
+      "word": "save",
+      "soundAudio": "audio/26_sound.m4a",
+      "wordAudio": "audio/26_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/26.-save-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/26.-save-2.m4a"
+    },
+    {
+      "index": 27,
+      "group": "consonant",
+      "ipa": "ʃ",
+      "word": "sure",
+      "soundAudio": "audio/27_sound.m4a",
+      "wordAudio": "audio/27_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/27.-sure-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/27.-sure-2.m4a"
+    },
+    {
+      "index": 28,
+      "group": "consonant",
+      "ipa": "k",
+      "word": "cat",
+      "soundAudio": "audio/28_sound.m4a",
+      "wordAudio": "audio/28_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/28.-cat-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/28.-cat-2.m4a"
+    },
+    {
+      "index": 29,
+      "group": "consonant",
+      "ipa": "b",
+      "word": "bit",
+      "soundAudio": "audio/29_sound.m4a",
+      "wordAudio": "audio/29_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/29.-bit-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/29.-bit-2.m4a"
+    },
+    {
+      "index": 30,
+      "group": "consonant",
+      "ipa": "v",
+      "word": "vase",
+      "soundAudio": "audio/30_sound.m4a",
+      "wordAudio": "audio/30_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/30.-vase-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/30.-vase-2.m4a"
+    },
+    {
+      "index": 31,
+      "group": "consonant",
+      "ipa": "d",
+      "word": "done",
+      "soundAudio": "audio/31_sound.m4a",
+      "wordAudio": "audio/31_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/31.-done-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/31.-done-2.m4a"
+    },
+    {
+      "index": 32,
+      "group": "consonant",
+      "ipa": "ð",
+      "word": "those",
+      "soundAudio": "audio/32_sound.m4a",
+      "wordAudio": "audio/32_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/32.-those-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/32.-those-2.m4a"
+    },
+    {
+      "index": 33,
+      "group": "consonant",
+      "ipa": "ʤ",
+      "word": "jam",
+      "soundAudio": "audio/33_sound.m4a",
+      "wordAudio": "audio/33_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/33.-jam-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/33.-jam-2.m4a"
+    },
+    {
+      "index": 34,
+      "group": "consonant",
+      "ipa": "z",
+      "word": "zoo",
+      "soundAudio": "audio/34_sound.m4a",
+      "wordAudio": "audio/34_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/34.-zoo-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/34.-zoo-2.m4a"
+    },
+    {
+      "index": 35,
+      "group": "consonant",
+      "ipa": "ʒ",
+      "word": "vision",
+      "soundAudio": "audio/35_sound.m4a",
+      "wordAudio": "audio/35_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/35.-vision-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/35.-vision-2.m4a"
+    },
+    {
+      "index": 36,
+      "group": "consonant",
+      "ipa": "g",
+      "word": "goal",
+      "soundAudio": "audio/36_sound.m4a",
+      "wordAudio": "audio/36_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/36.-goal-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/36.-goal-2.m4a"
+    },
+    {
+      "index": 37,
+      "group": "consonant",
+      "ipa": "h",
+      "word": "him",
+      "soundAudio": "audio/37_sound.m4a",
+      "wordAudio": "audio/37_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/37.-him-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/37.-him-2.m4a"
+    },
+    {
+      "index": 38,
+      "group": "consonant",
+      "ipa": "m",
+      "word": "may",
+      "soundAudio": "audio/38_sound.m4a",
+      "wordAudio": "audio/38_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/38.-may-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/38.-may-2.m4a"
+    },
+    {
+      "index": 39,
+      "group": "consonant",
+      "ipa": "n",
+      "word": "not",
+      "soundAudio": "audio/39_sound.m4a",
+      "wordAudio": "audio/39_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/39.-not-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/39.-not-2.m4a"
+    },
+    {
+      "index": 40,
+      "group": "consonant",
+      "ipa": "ŋ",
+      "word": "sing",
+      "soundAudio": "audio/40_sound.m4a",
+      "wordAudio": "audio/40_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/40.-sing-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/40.-sing-2.m4a"
+    },
+    {
+      "index": 41,
+      "group": "consonant",
+      "ipa": "r",
+      "word": "reach",
+      "soundAudio": "audio/41_sound.m4a",
+      "wordAudio": "audio/41_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/41.-reach-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/41.-reach-2.m4a"
+    },
+    {
+      "index": 42,
+      "group": "consonant",
+      "ipa": "l",
+      "word": "lie",
+      "soundAudio": "audio/42_sound.m4a",
+      "wordAudio": "audio/42_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/42-lie-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/42-lie-2.m4a"
+    },
+    {
+      "index": 43,
+      "group": "consonant",
+      "ipa": "w",
+      "word": "will",
+      "soundAudio": "audio/43_sound.m4a",
+      "wordAudio": "audio/43_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/43.-will-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/43.-will-2.m4a"
+    },
+    {
+      "index": 44,
+      "group": "consonant",
+      "ipa": "j",
+      "word": "yet",
+      "soundAudio": "audio/44_sound.m4a",
+      "wordAudio": "audio/44_word.m4a",
+      "sourceSoundUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/44.-yet-1.m4a",
+      "sourceWordUrl": "https://englishwithlucy.com/wp-content/uploads/2025/11/44.-yet-2.m4a"
+    }
+  ]
+}

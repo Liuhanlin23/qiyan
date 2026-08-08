@@ -1,0 +1,22 @@
+node_modules
+out
+dist
+# electron-builder 的安装包产物（输出目录避开被 design-system 占用的 dist/）
+release
+*.log
+.DS_Store
+*.tsbuildinfo
+.playwright-mcp/
+
+# design-sync (staged scripts + regenerated bundle + machine state)
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+
+# Gallery 静态版打包（发布 artifact 给外部预览用，非 app 运行时）
+.gallery-artifact/
+
+# pdfjs 运行时静态资源（由 scripts/sync-pdfjs.mjs 从 node_modules 同步，见该脚本注释）
+src/renderer/public/vendor/pdfjs/

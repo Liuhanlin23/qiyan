@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1784085280727,
+      "tag": "0000_overconfident_wolfsbane",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1784121851124,
+      "tag": "0001_parallel_squadron_supreme",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1784186066919,
+      "tag": "0002_condemned_shriek",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1784260579281,
+      "tag": "0003_overconfident_tusk",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1784260579282,
+      "tag": "0004_settings_kv",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1784553802961,
+      "tag": "0005_rainy_sasquatch",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1785222891419,
+      "tag": "0006_broken_the_renegades",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1785231512802,
+      "tag": "0007_heavy_deadpool",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+/* Button 按压回弹("squish") —— 复刻 claude .cds-btn-squish。
+   静止: transform 走 .45s + --btn-spring(linear 含 >1 过冲 → 松手弹回);
+   按下: 60ms 快速缩到 scale(.975); 颜色(hover 切 fill-*-hover)单独走 .12s。
+   三者合并到同一条 transition —— "同元素上 transform 与 color 用不同时长/缓动" Tailwind 表达不了, 故手写。 */
+/* 小手: Tailwind v4 preflight 把 button 钉成 cursor:default, 而 .btn-squish 正是全站
+   "这东西可点" 的统一标记(CDS Button 与各处自定义可点元素都带它), 故在此一并接管;
+   禁用态退回 default —— 点不动的东西不该邀请点击。
+   刻意放 @layer base(不同于下方 unlayered 的 transition): 同层特异性压过 preflight 的
+   `button`, 而 utilities 层在其后 —— 个别元素仍可用 cursor-not-allowed 等工具类改写。 */
+@layer base {
+  .btn-squish {
+    cursor: pointer;
+  }
+  .btn-squish:disabled,
+  .btn-squish[aria-disabled='true'],
+  .btn-squish[data-disabled] {
+    cursor: default;
+  }
+}
+
+.btn-squish {
+  transition:
+    transform 0.45s var(--btn-spring),
+    background-color 0.12s ease-out,
+    border-color 0.12s ease-out,
+    color 0.12s ease-out;
+}
+.btn-squish:active:not(:disabled) {
+  transform: scale(0.975);
+  transition:
+    transform 60ms ease-out,
+    background-color 0.12s ease-out,
+    border-color 0.12s ease-out,
+    color 0.12s ease-out;
+}

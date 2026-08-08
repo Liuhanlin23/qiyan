@@ -1,0 +1,72 @@
+/* 浮层进出动画 —— 复刻 claude 浮层的 scale+opacity 弹入(Base UI data-[starting/ending-style])。
+   Radix 用 data-state(open/closed/delayed-open/instant-open) 驱动, 故在此用属性选择器接 keyframes。
+   transform-origin 由各组件按 Radix 的 --radix-*-content-transform-origin 设置, 保证从触发点缩放。 */
+
+@keyframes cds-pop-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cds-pop-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.96); }
+}
+@keyframes cds-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes cds-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+/* 居中对话框: 只做 scale, 不碰位移。Tailwind v4 的 -translate-x/y-1/2 走独立的 `translate:` 属性,
+   与这里的 `transform: scale()` 互不覆盖; 若再在 keyframe 里写 translate(-50%,-50%) 会和它叠加成 -100% 而偏移。 */
+@keyframes cds-dialog-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes cds-dialog-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.96); }
+}
+/* Toast: 从右侧滑入(真站实测 0.2s)。 */
+@keyframes cds-toast-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes cds-toast-out {
+  from { opacity: 1; }
+  to { opacity: 0; transform: translateX(100%); }
+}
+
+@layer utilities {
+  /* 缩放弹入/弹出: 用于 tooltip / menu / popover / dialog 内容 */
+  .anim-pop[data-state='closed'] {
+    animation: cds-pop-out 0.12s ease-in both;
+  }
+  .anim-pop[data-state='open'],
+  .anim-pop[data-state='delayed-open'],
+  .anim-pop[data-state='instant-open'] {
+    animation: cds-pop-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  /* 纯淡入淡出: 用于遮罩 */
+  .anim-fade[data-state='closed'] {
+    animation: cds-fade-out 0.15s ease-in both;
+  }
+  .anim-fade[data-state='open'] {
+    animation: cds-fade-in 0.15s ease-out both;
+  }
+  /* 居中对话框缩放弹入/弹出(保留居中位移) */
+  .anim-dialog[data-state='closed'] {
+    animation: cds-dialog-out 0.12s ease-in both;
+  }
+  .anim-dialog[data-state='open'] {
+    animation: cds-dialog-in 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  /* Toast 右侧滑入/淡出 */
+  .anim-toast[data-state='open'] {
+    animation: cds-toast-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .anim-toast[data-state='closed'] {
+    animation: cds-toast-out 0.2s ease-in;
+  }
+}
