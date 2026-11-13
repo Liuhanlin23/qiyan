@@ -121,6 +121,9 @@ const mkSettings = (o: Partial<Settings> = {}): Settings => ({
   autoPlayAudio: 1,
   readingFontSize: 16,
   readingFontFamily: 'serif',
+  aiBaseUrl: 'http://localhost:11434/v1',
+  aiApiKey: '',
+  aiModel: 'qwen2.5:7b',
   ...o,
 })
 

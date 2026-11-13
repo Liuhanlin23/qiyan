@@ -15,4 +15,8 @@ export interface Settings {
   /** 正文字号 px（首版 UI 只给四挡，值域 14–28 是为将来换控件留的余量）。 */
   readingFontSize: number
   readingFontFamily: 'serif' | 'sans'
+  /** AI 接口配置（OpenAI 兼容地址，默认本地 Ollama）。 */
+  aiBaseUrl: string
+  aiApiKey: string
+  aiModel: string
 }

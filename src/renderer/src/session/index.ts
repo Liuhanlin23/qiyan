@@ -11,6 +11,8 @@ export { getToken, getUser } from './tokenStore'
 
 /** 是否已登录（内存中有 token）。 */
 export const isAuthenticated = (): boolean => getToken() !== null
+/** 是否处于本地离线自用模式。 */
+export const isOfflineMode = (): boolean => getToken() === 'offline-local'
 /** 当前登录邮箱；未登录返回 null。 */
 export const readAuthEmail = (): string | null => getUser()?.email ?? null
 
@@ -44,6 +46,7 @@ export async function signIn(record: AuthRecord): Promise<void> {
  * 但必须留日志（不得静默）——库已开、会话可用，同步引擎下次回合可自愈。
  */
 async function startSyncAfterOpen(): Promise<void> {
+  if (getToken() === 'offline-local') return
   try {
     await primeClockOffset(db) // 预热校准钟内存 offset，供首个 pull 前的同步写路径取时
     startEngine()

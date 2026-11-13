@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { BookOpen, FlaskConical, LayoutGrid, Library, Palette, Search } from 'lucide-react'
+import { BookOpen, FlaskConical, Keyboard, LayoutGrid, Library, Palette, Search } from 'lucide-react'
 import {
   Sidebar,
   SidebarBody,
@@ -20,6 +20,7 @@ import { getUser } from '@/session'
 
 const NAV_ITEMS = [
   { path: '/wordbook', label: '单词本', icon: Library },
+  { path: '/typing', label: '打字听写', icon: Keyboard },
   { path: '/lookup', label: '查词', icon: Search },
   { path: '/reading', label: '阅读', icon: BookOpen },
   { path: '/resources', label: '资源', icon: LayoutGrid },

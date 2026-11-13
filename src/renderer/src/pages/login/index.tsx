@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { emailSignIn, sendEmailCode } from '@/api/auth'
+import { Button } from '@/components/ui'
 import { signIn } from '@/session'
 import { BrandHeader } from './components/BrandHeader'
 import { EmailStep } from './components/EmailStep'
@@ -87,6 +88,16 @@ export default function Login(): React.JSX.Element {
     setVerifying(false)
   }
 
+  const handleOfflineEnter = async (): Promise<void> => {
+    setVerifying(true)
+    try {
+      await signIn({ token: 'offline-local', userId: 1, email: '本地离线用户' })
+      navigate('/', { replace: true })
+    } finally {
+      setVerifying(false)
+    }
+  }
+
   return (
     <div className="relative flex min-h-screen flex-1 items-center justify-center bg-page-bg px-6 py-12">
       <BrandHeader />
@@ -114,6 +125,21 @@ export default function Login(): React.JSX.Element {
             resendIn={resendIn}
           />
         )}
+
+        <div className="flex flex-col items-center gap-2 border-t border-border pt-6">
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            disabled={sending || verifying}
+            onClick={() => void handleOfflineEnter()}
+          >
+            离线使用（本地 SQLite 模式）
+          </Button>
+          <p className="text-center text-xs text-text-muted">
+            无需联网登录，所有生词本、阅读记录与 AI 配置均保存在本地
+          </p>
+        </div>
       </div>
     </div>
   )

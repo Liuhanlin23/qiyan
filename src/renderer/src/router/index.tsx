@@ -11,6 +11,7 @@ import TodayLearn from '@/pages/word-book/today'
 import MyWords from '@/pages/word-book/words'
 import MyNotes from '@/pages/word-book/notes'
 import WordLookup from '@/pages/lookup'
+import TypingPractice from '@/pages/typing'
 import Reading from '@/pages/reading'
 import ReaderPage from '@/pages/reading/reader'
 import Resources from '@/pages/resources'
@@ -94,6 +95,7 @@ export const router = createHashRouter([
       { path: 'wordbook/words', element: <MyWords /> },
       { path: 'wordbook/notes', element: <MyNotes /> },
       { path: 'lookup', element: <WordLookup /> },
+      { path: 'typing', element: <TypingPractice /> },
       { path: 'reading', element: <Reading /> },
       { path: 'resources', element: <Resources /> },
       ...devShellRoutes,

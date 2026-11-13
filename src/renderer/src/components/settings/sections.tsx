@@ -7,6 +7,7 @@ import {
   Monitor,
   Moon,
   SlidersHorizontal,
+  Sparkles,
   Sun,
   User,
   WalletCards,
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react'
 import {
   Button,
+  Input,
   Select,
   SelectContent,
   SelectItem,
@@ -392,6 +394,69 @@ function ReadingSection(): React.JSX.Element {
   )
 }
 
+/**
+ * AI 模型：配置 OpenAI 兼容接口（支持本地 Ollama / DeepSeek / OpenAI 等）。
+ */
+function AiSection(): React.JSX.Element {
+  const [draft, patch] = useSettingsDraft()
+  if (!draft) return <SectionLoading title="AI 模型" />
+
+  return (
+    <SectionShell title="AI 模型">
+      <SettingRow title="快速预设" desc="一键填充常见模型服务地址，也可在下方自定义。">
+        <div className="flex items-center gap-2">
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => patch({ aiBaseUrl: 'http://localhost:11434/v1', aiModel: 'qwen2.5:7b', aiApiKey: '' })}
+          >
+            本地 Ollama
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => patch({ aiBaseUrl: 'https://api.deepseek.com/v1', aiModel: 'deepseek-chat' })}
+          >
+            DeepSeek
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => patch({ aiBaseUrl: 'https://api.openai.com/v1', aiModel: 'gpt-4o-mini' })}
+          >
+            OpenAI
+          </Button>
+        </div>
+      </SettingRow>
+      <SettingRow title="接口地址 (Base URL)" desc="OpenAI 兼容接口根地址，本地 Ollama 默认 http://localhost:11434/v1。">
+        <Input
+          className="w-72"
+          value={draft.aiBaseUrl}
+          placeholder="http://localhost:11434/v1"
+          onChange={(e) => patch({ aiBaseUrl: e.target.value })}
+        />
+      </SettingRow>
+      <SettingRow title="API Key" desc="本地 Ollama 可留空；云端模型请填写密钥（仅保存在本地库）。">
+        <Input
+          type="password"
+          className="w-72"
+          value={draft.aiApiKey}
+          placeholder="sk-..."
+          onChange={(e) => patch({ aiApiKey: e.target.value })}
+        />
+      </SettingRow>
+      <SettingRow title="模型名称" desc="例如 qwen2.5:7b、deepseek-chat、gpt-4o-mini。">
+        <Input
+          className="w-72"
+          value={draft.aiModel}
+          placeholder="qwen2.5:7b"
+          onChange={(e) => patch({ aiModel: e.target.value })}
+        />
+      </SettingRow>
+    </SectionShell>
+  )
+}
+
 export interface SettingsSection {
   id: string
   label: string
@@ -406,4 +471,5 @@ export const SETTINGS_SECTIONS: readonly SettingsSection[] = [
   { id: 'wordbook', label: '单词本', icon: Library, Panel: LearningPreferences },
   { id: 'wordcard', label: '单词卡', icon: WalletCards, Panel: WordCardPreferences },
   { id: 'reading', label: '阅读', icon: BookOpen, Panel: ReadingSection },
+  { id: 'ai', label: 'AI 模型', icon: Sparkles, Panel: AiSection },
 ] as const

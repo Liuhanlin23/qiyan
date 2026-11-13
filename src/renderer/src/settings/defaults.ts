@@ -19,6 +19,7 @@ function spec<T>(key: string, def: T, validate: (v: unknown) => v is T): Setting
 }
 
 const isNonNegInt = (v: unknown): v is number => typeof v === 'number' && Number.isInteger(v) && v >= 0
+const isString = (v: unknown): v is string => typeof v === 'string'
 
 /** 正文字号值域：UI 首版只给四挡（14/16/20/24），校验按整数 14–28 收口，将来换连续控件免数据迁移。 */
 const READING_FONT_SIZE = { min: 14, max: 28 }
@@ -65,6 +66,9 @@ export const SETTINGS_REGISTRY: Record<keyof Settings, SettingSpec> = {
     'serif',
     (v): v is Settings['readingFontFamily'] => v === 'serif' || v === 'sans',
   ),
+  aiBaseUrl: spec<Settings['aiBaseUrl']>('ai.baseUrl', 'http://localhost:11434/v1', isString),
+  aiApiKey: spec<Settings['aiApiKey']>('ai.apiKey', '', isString),
+  aiModel: spec<Settings['aiModel']>('ai.model', 'qwen2.5:7b', isString),
 }
 
 /** 全默认视图（由注册表派生，缺行时的回退整体）。 */

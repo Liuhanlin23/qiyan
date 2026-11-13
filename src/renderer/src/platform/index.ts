@@ -2,6 +2,7 @@
 // 上层（db/client、session、sync、reading）只依赖这里，不直接摸 window，便于收敛平台攻击面与测试替身。
 import type { ProxyResult, ProxyStmt, SqlMethod } from '../../../shared/db'
 import type { AuthRecord } from '../../../shared/auth'
+import type { AiCompleteRequest, AiCompleteResult } from '../../../shared/ai'
 import { bookCoverUrl, type BookFormat, type BookPaths, type PickedBookFile } from '../../../shared/books'
 import type { SuggestEntry } from '../../../shared/suggest'
 import type { TranslateRequest } from '../../../shared/translate'
@@ -72,6 +73,11 @@ export const translateBridge = {
 export const ttsBridge = {
   synthesize: (req: TtsSynthesizeRequest): Promise<TtsSynthesizeResult> =>
     window.ttsAPI.synthesize(req),
+}
+
+/** AI 补全转发桥（OpenAI 兼容接口 / 本地 Ollama，main 绕 CORS）。 */
+export const aiBridge = {
+  complete: (req: AiCompleteRequest): Promise<AiCompleteResult> => window.aiAPI.complete(req),
 }
 
 /**

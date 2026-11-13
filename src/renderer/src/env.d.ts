@@ -11,6 +11,8 @@ declare const __APP_VERSION__: string
 
 // 跨进程契约（src/shared/*）。用 inline import 类型引入为全局别名，避免顶层 import 让本文件退化为模块。
 type AuthRecord = import('../../shared/auth').AuthRecord
+type AiCompleteRequest = import('../../shared/ai').AiCompleteRequest
+type AiCompleteResult = import('../../shared/ai').AiCompleteResult
 type BookFormat = import('../../shared/books').BookFormat
 type BookPaths = import('../../shared/books').BookPaths
 type PickedBookFile = import('../../shared/books').PickedBookFile
@@ -58,6 +60,9 @@ interface Window {
   }
   ttsAPI: {
     synthesize: (req: TtsSynthesizeRequest) => Promise<TtsSynthesizeResult>
+  }
+  aiAPI: {
+    complete: (req: AiCompleteRequest) => Promise<AiCompleteResult>
   }
   updaterAPI: {
     check: () => Promise<boolean>
