@@ -6,6 +6,8 @@
 import { db } from '@/db/client'
 import { calibratedNowSync } from '@/sync/clock'
 import { readThroughByDictId, maybeRefreshDictUpdates } from '@/dict/service'
+import * as dictLocal from '@/dict/dict'
+import { getToken } from '@/session/tokenStore'
 import * as studySession from './studySession'
 import type { ExtraGroupSizes } from './studySession'
 import * as words from './words'
@@ -197,9 +199,11 @@ export const clearNote = (dictId: number): Promise<void> =>
 
 // ── 词库补缺 / 增量维护 ──
 
-/** 每天首次进单词本触发词库增量（键集翻页，dict.md §3）。触发语义属单词本域，日窗起点由此算好传入 dict 编排。 */
-export const refreshDictUpdatesForToday = (): Promise<void> =>
-  maybeRefreshDictUpdates(db, dayWindow(calibratedNowSync()).startMs)
+/** 每天首次进单词本触发词库增量（键集翻页，dict.md §3）。本地离线模式跳过。 */
+export const refreshDictUpdatesForToday = (): Promise<void> => {
+  if (getToken() === 'offline-local') return Promise.resolve()
+  return maybeRefreshDictUpdates(db, dayWindow(calibratedNowSync()).startMs)
+}
 /** 手动/诊断触发词库补缺（后台单飞）。 */
 export const fillMissingDict = (): Promise<void> => service.fillMissingDict(db)
 
@@ -231,4 +235,74 @@ export async function todayCounts(): Promise<{
     words.segmentCounts(db, now),
   ])
   return { newDone, reviewDone, dueTotal: counts.due }
+}
+
+export interface OfflineWordImportItem {
+  term: string
+  phonetic?: string
+  meaning: string
+  example?: string
+  exampleZh?: string
+}
+
+function deterministicLocalDictId(term: string): number {
+  let h = 2166136261
+  const s = term.trim().toLowerCase()
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return 100_000_000 + (Math.abs(h) % 900_000_000)
+}
+
+/** 离线批量导入词条到本地 dict 缓存并加入 user_word 学习队列（FSRS 复习）。 */
+export async function importOfflineWords(items: readonly OfflineWordImportItem[]): Promise<number> {
+  const valid = items.filter((w) => w.term.trim().length > 0)
+  if (valid.length === 0) return 0
+
+  const rows: LocalDictRow[] = []
+  const dictIds: number[] = []
+  for (const w of valid) {
+    const term = w.term.trim()
+    const existing = await dictLocal.getByTerm(db, term)
+    const dictId = existing?.dictId ?? deterministicLocalDictId(term)
+    dictIds.push(dictId)
+    if (!existing) {
+      const cleanPhonetic = (w.phonetic ?? '').replace(/^\/|\/$/g, '').trim() || null
+      rows.push({
+        dictId,
+        term,
+        termType: 0,
+        ukPhonetic: cleanPhonetic,
+        usPhonetic: cleanPhonetic,
+        ukAudioUrl: null,
+        usAudioUrl: null,
+        audioUrl: null,
+        ec: JSON.stringify({
+          word: [
+            {
+              'return-phrase': { l: { i: term } },
+              trs: [{ tr: [{ l: { i: [w.meaning] } }] }],
+            },
+          ],
+        }),
+        collins: null,
+        syno: null,
+        relWord: null,
+        phrs: null,
+        individual: null,
+        exampleSentence: w.example
+          ? JSON.stringify({
+              'sentence-pair': [{ sentence: w.example, 'sentence-translation': w.exampleZh ?? '' }],
+            })
+          : null,
+      })
+    }
+  }
+
+  if (rows.length > 0) {
+    await dictLocal.upsertDicts(db, rows)
+  }
+  await words.addWords(db, dictIds, calibratedNowSync())
+  return dictIds.length
 }

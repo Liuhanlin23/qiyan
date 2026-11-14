@@ -151,6 +151,9 @@ const mkSettings = (o: Partial<Settings> = {}): Settings => ({
   // 阅读排版两项与调度无关，取生产默认占位即可（Settings 是整份视图，得给全）。
   readingFontSize: 16,
   readingFontFamily: 'serif',
+  aiBaseUrl: 'http://localhost:11434/v1',
+  aiApiKey: '',
+  aiModel: 'qwen2.5:7b',
   ...o,
 })
 

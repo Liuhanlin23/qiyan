@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import { Toaster } from './components/common/Toaster'
 import { UpgradeGateDialog } from './components/common/UpgradeGateDialog'
-import { initSession, signOut } from './session'
+import { initSession, isAuthenticated, isOfflineMode, signIn, signOut } from './session'
 import { setAuthFailureHandler, setUpgradeRequiredHandler } from './api/request'
 import { probeClientVersion } from './api/clientGate'
 import { ensureUpdateCheck, initAppUpdate } from './lib/appUpdate'
@@ -29,14 +29,21 @@ setAuthFailureHandler(() => {
 // 服务端版本挡板（HTTP 426）→ 停同步引擎 + 落下不可关闭的升级弹窗。
 // 只停服务端交互：本地库与脏行原样保留，绝不清库、绝不推脏（client-protocol.md / sync.md §4）。
 setUpgradeRequiredHandler(() => {
+  if (isOfflineMode()) return
   stopEngine()
   showUpgradeGate()
 })
 
-// 先从 main 读回持久化登录态，再渲染——保证路由守卫首帧就拿到正确登录态，避免闪登录页。
-// initSession 失败也照常渲染（守卫会按未登录处理）；显式 catch 兜底，避免把 rejection 变成未处理拒绝。
+// 本地自用模式：若尚未登录则自动以本地离线身份开库直达主界面，无需弹窗/邮箱登录。
 initSession()
-  .catch((e) => console.error('[session] 初始化异常，按未登录渲染', e))
+  .catch((e) => console.error('[session] 初始化异常，尝试进入本地模式', e))
+  .then(async () => {
+    if (!isAuthenticated()) {
+      await signIn({ token: 'offline-local', userId: 1, email: '本地自用模式' }).catch((e) =>
+        console.error('[session] 自动进入本地模式失败', e),
+      )
+    }
+  })
   .then(() => {
     ReactDOM.createRoot(document.getElementById('root')!).render(
       <React.StrictMode>
@@ -46,12 +53,9 @@ initSession()
         <UpgradeGateDialog />
       </React.StrictMode>
     )
-    // 启动探测一次（fire-and-forget，不阻塞首帧）：撞挡板由响应拦截器触发上面的 handler。
-    // **必须在 initSession 之后**——并发发出的话，426 可能先于 startEngine 返回，stopEngine() 空转，
-    // 随后引擎照样起来，成了「弹窗已弹但同步在跑」。运行期不轮询（前台定时一跳天然承担探测）。
-    void probeClientVersion()
-    // 自动更新：接上 main 的事件推流后静默查一次（发现即后台下载，退出时自动装上；
-    // 强制点只有版本挡板——撞 426 时弹窗内再触发，一键「重启更新」脱困）。与挡板同节奏不轮询。
-    initAppUpdate()
-    void ensureUpdateCheck()
+    if (!isOfflineMode()) {
+      void probeClientVersion()
+      initAppUpdate()
+      void ensureUpdateCheck()
+    }
   })

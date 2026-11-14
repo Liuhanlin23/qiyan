@@ -2,6 +2,7 @@
 // renderer 永远拿不到 ipcRenderer / node 能力，只能调用这里显式开放的平台原语。
 import { contextBridge, ipcRenderer } from 'electron'
 import type { AuthRecord } from '../shared/auth'
+import type { AiCompleteRequest, AiCompleteResult } from '../shared/ai'
 import type { BookFormat, BookPaths, PickedBookFile } from '../shared/books'
 import type { ProxyResult, ProxyStmt, SqlMethod } from '../shared/db'
 import type { SuggestEntry } from '../shared/suggest'
@@ -76,6 +77,12 @@ const updaterAPI = {
   },
 }
 
+// AI 补全转发桥：OpenAI 兼容接口 / 本地 Ollama，main 绕 CORS。
+const aiAPI = {
+  complete: (req: AiCompleteRequest): Promise<AiCompleteResult> =>
+    ipcRenderer.invoke('ai:complete', req),
+}
+
 contextBridge.exposeInMainWorld('electronAPI', electronAPI)
 contextBridge.exposeInMainWorld('dbAPI', dbAPI)
 contextBridge.exposeInMainWorld('booksAPI', booksAPI)
@@ -83,4 +90,5 @@ contextBridge.exposeInMainWorld('shellAPI', shellAPI)
 contextBridge.exposeInMainWorld('suggestAPI', suggestAPI)
 contextBridge.exposeInMainWorld('translateAPI', translateAPI)
 contextBridge.exposeInMainWorld('ttsAPI', ttsAPI)
+contextBridge.exposeInMainWorld('aiAPI', aiAPI)
 contextBridge.exposeInMainWorld('updaterAPI', updaterAPI)

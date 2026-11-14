@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { SearchX, WifiOff } from 'lucide-react'
+import { Loader2, SearchX, Sparkles, WifiOff } from 'lucide-react'
+import { explainWordWithAi } from '@/ai'
 import type { Word, MeaningSource, DetailTab } from '@/types/word'
 import { Button, ConfirmDialog } from '@/components/ui'
 import { WordCard } from '@/components/word/WordCard'
@@ -186,6 +187,8 @@ export function WordLookupPanel({
         />
       )}
 
+      <AiAssistBlock term={term} />
+
       <ConfirmDialog
         open={confirmRemoveOpen}
         onOpenChange={setConfirmRemoveOpen}
@@ -258,6 +261,66 @@ function Unavailable({
         <Button variant="secondary" size="sm" onClick={onRetry}>
           重试
         </Button>
+      </div>
+    </div>
+  )
+}
+
+// ─────────────────────────── AI 深度解析 ───────────────────────────
+
+function AiAssistBlock({ term }: { term: string }): React.JSX.Element {
+  const [loading, setLoading] = useState(false)
+  const [answer, setAnswer] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setAnswer(null)
+    setError(null)
+    setLoading(false)
+  }, [term])
+
+  const handleAnalyze = async (): Promise<void> => {
+    const q = term.trim()
+    if (!q || loading) return
+    setLoading(true)
+    setError(null)
+    try {
+      const content = await explainWordWithAi(q)
+      setAnswer(content)
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'AI 解析失败，请检查设置中的 AI 模型配置')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="mx-auto mt-4 w-full max-w-2xl px-6 pb-8">
+      <div className="rounded-card border border-border bg-surface-1 p-4">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm font-medium text-text-primary">
+            <Sparkles className="size-4 text-text-secondary" />
+            <span>AI 语境解析与助记</span>
+          </div>
+          <Button variant="secondary" size="sm" onClick={() => void handleAnalyze()} disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="mr-1.5 size-3.5 animate-spin" />
+                生成中…
+              </>
+            ) : answer ? (
+              '重新生成'
+            ) : (
+              'AI 解析'
+            )}
+          </Button>
+        </div>
+        {error && <p className="mt-2 text-xs text-danger">{error}</p>}
+        {answer && (
+          <div className="mt-3 whitespace-pre-wrap border-t border-border pt-3 text-sm leading-relaxed text-text-secondary">
+            {answer}
+          </div>
+        )}
       </div>
     </div>
   )

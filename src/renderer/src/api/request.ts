@@ -98,7 +98,7 @@ request.interceptors.request.use(applyRequestHeaders)
 export function handleHttpError(error: unknown): Promise<never> {
   const failure = error as { response?: { status?: number }; config?: { silent?: boolean } } | null
   if (failure?.response?.status === 426) {
-    onUpgradeRequired?.()
+    if (getToken() !== 'offline-local') onUpgradeRequired?.()
     return Promise.reject(new UpgradeRequiredError('客户端版本不匹配，请升级'))
   }
   if (failure?.config?.silent === true) {
